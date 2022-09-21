@@ -1,7 +1,6 @@
 void setup() {
   // put your setup code here, to run once:
   pinMode(7, OUTPUT);
-  Serial.begin(115200);
 }
 
 void loop() {
@@ -13,8 +12,8 @@ void loop() {
     delay(100);
     digitalWrite(7, 0);
     delay(100);
-    }
+  }
   while(1){
     digitalWrite(7, 1);
-    } //infinite loop
+  }
 }

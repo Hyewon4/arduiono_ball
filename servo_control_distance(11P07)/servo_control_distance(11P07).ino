@@ -16,7 +16,7 @@
 #define TIMEOUT ((INTERVAL / 2) * 1000.0) // maximum echo waiting time (unit: usec)
 #define SCALE (0.001 * 0.5 * SND_VEL) // coefficent to convert duration to distance
 
-#define _EMA_ALPHA 0.23    // EMA weight of new sample (range: 0 to 1)
+#define _EMA_ALPHA 0.2  // EMA weight of new sample (range: 0 to 1)
                           // Setting EMA to 1 effectively disables EMA filter.
 
 // Target Distance
@@ -90,10 +90,9 @@ void loop() {
 
   // output the distance to the serial port
   Serial.print("Min:");    Serial.print(_DIST_MIN);
-  Serial.print(",Low:");   Serial.print(_TARGET_LOW);
   Serial.print(",dist:");  Serial.print(dist_raw);
-  Serial.print(",Servo:"); Serial.print(myservo.read());  
-  Serial.print(",High:");  Serial.print(_TARGET_HIGH);
+  Serial.print(" ,ema:");  Serial.print(dist_ema);
+  Serial.print(",Servo:"); Serial.print(myservo.read());
   Serial.print(",Max:");   Serial.print(_DIST_MAX);
   Serial.println("");
  
